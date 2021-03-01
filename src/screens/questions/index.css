@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap');
+
+
+#btnBuscar {
+  min-width: 12%;
+  height: 48px;
+  background: #667EEA;
+  border-radius: 4px;  
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  align-self: center;
+  margin: 20px 0px 0px 40px;     
+}
+
+#radios {
+  margin: 30px 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.question {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+form {
+  margin-top: 80px;
+  margin-left: 40px;
+}
+
+.radio {
+  margin-left: 30px;
+  margin-top: 15px;
+  display: flex;      
+}
+
+.radio > a {
+  font-family: 'Roboto';
+  font-size: 18px;
+  line-height: 21px;
+  color: #2D3748;
+  margin-top: 1px ;
+  margin-left: 10px;
+}
+
+.containerRadio {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #efefef;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.containerRadio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+  
+.containerRadio input:checked ~ .checkmark {
+  background-color: #667EEA;
+}
+  
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+  
+.containerRadio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.containerRadio .checkmark:after {
+  top: 7px;
+   left: 7px;
+   width: 8px;
+   height: 8px;
+   border-radius: 50%;
+   background: white;      
+}
+
+.header {
+  background-color: #667EEA;
+  height: 12vh;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+}
+
+.header img {
+  height: 10vh;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.6;
+  position: fixed;
+  width: 70%;
+  height: 70vh;
+  margin: 2% 15%;
+  top: 100px;
+}
+
+.btn-final {
+  min-width: 25%;
+  height: 48px;
+  background: #fff;
+  border-radius: 4px;  
+  font-weight: bold;
+  font-size: 20px;
+  align-self: center;     
+  border: none;
+  margin-top: 50px;
+}
+
+.msg-loose {
+  font-weight: bold;
+  max-width: 72%;  
+  font-size: 60px;
+  color: #fff;
+  align-self: center;     
+  position: fixed;
+  border: none;  
+  margin-top: 500px;
+}
+
+.game-over, .msg-loose {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;  
+}
