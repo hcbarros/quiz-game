@@ -17,13 +17,11 @@ class Questions extends Component {
             selectedOption: "idaVolta",
             responses: [],
             nextQuestion: {},
-            valorForm: ""
+            loose: false,
+            win: false
         };
 
-        this.radio = React.createRef();
-        
-        this.btn = React.createRef();
-        
+        this.radio = React.createRef();        
         this.clickBtn = this.clickBtn.bind(this);
     }
 
@@ -36,19 +34,21 @@ class Questions extends Component {
         this.setState({nextQuestion: next, 
                        selectedOption: next.answers[0], 
                        responses: values,
-                       loading: false});
+                       loading: false});                       
     }
    
     clickBtn = () => {
         if(this.state.selectedOption == this.state.nextQuestion.resultAnswer) {
-            this.setValues(this.state.responses);            
-        }
-    }
 
+            if(this.state.responses.length === 0) this.setState({win: true});
+            else this.setValues(this.state.responses);            
+        }
+        else this.setState({loose: true});        
+    }
         
     async componentDidMount() {
 
-        var xhttp = new XMLHttpRequest();
+        let xhttp = new XMLHttpRequest();
         
         const responses = () => {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -60,21 +60,6 @@ class Questions extends Component {
         xhttp.send();         
     }
 
-    getRadio = (value) => {        
-        return(
-            <div className="radio">
-
-                <label className="containerRadio">
-                    <input type="radio" name="radioBusca" value={value} 
-                    checked={this.state.selectedOption === value}
-                    onChange={e => this.onValueChange(e)} />
-                    <span className="checkmark"></span>
-                </label>
-                <a>{value}</a>
-            </div>   
-        );
-    }
-
 
     render() {
 
@@ -83,32 +68,48 @@ class Questions extends Component {
 
                 <img src={logo} alt="logo" />
 
-                <div className="game-over">
-                    <div className="overlay"></div>
-                    <div className="msg-loose">
-                        <div>Você perdeu o jogo!</div>
-                        <button className="btn-final">Recomeçar</button>
+                {this.state.loading && 
+                    <div id="loader"><img src={loader} alt="loader" /></div>
+                }
+
+                {this.state.redirect && <Redirect to="/"/>}
+
+                <div className={(this.state.loose || this.state.win) ? "game-over" : "hide"}>
+                    <div className={this.state.loose ? "overlay" : "hide"}></div>
+                    <div className="block-final">
+                        <div className={this.state.loose ? "msg-loose" : "hide"}>Você perdeu o jogo!</div>
+                        <div className={this.state.loose ? "hide" : ""}>Parabens! Você venceu o jogo.</div>
+                        <button className={this.state.loose ? "btn-loose" : "btn-win"}
+                                onClick={() => this.setState({redirect: true})} >
+                            Recomeçar
+                        </button>
                     </div>
-                </div>
+                </div>                
                 
-                
-                {!this.state.loading &&
+                {!this.state.loading && !this.state.win &&
 
                     <div>
                         <form>                         
                                 <div className="question">{this.state.nextQuestion.question}</div>
 
                                 <div id="radios">                  
-
-                                        {this.getRadio(this.state.nextQuestion.answers[0])}
-                                        {this.getRadio(this.state.nextQuestion.answers[1])}
-                                        {this.getRadio(this.state.nextQuestion.answers[2])}
-                                        {this.getRadio(this.state.nextQuestion.answers[3])}
-                                        {this.getRadio(this.state.nextQuestion.answers[4])}                            
+                                        {this.state.nextQuestion.answers.map((answer) => 
+                                            <div className="radio">
+                                                <label className="containerRadio">
+                                                    <input type="radio" disabled={this.state.loose} name="radioAnswer" value={answer} 
+                                                    checked={this.state.selectedOption === answer}
+                                                    onChange={e => this.onValueChange(e)} />
+                                                    <span className="checkmark"></span>
+                                                </label>
+                                                <a>{answer}</a>
+                                            </div>   
+                                        )}                                                                       
                                 </div>                        
                         </form>                
                         
-                        <button id="btnBuscar" onClick={this.clickBtn}>Confirmar</button>
+                        <button id="btnConfirm" disabled={this.state.loose} onClick={this.clickBtn}>
+                            Confirmar
+                        </button>
                     </div> 
                 }    
 

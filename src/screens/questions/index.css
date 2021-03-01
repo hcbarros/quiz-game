@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap');
 
 
-#btnBuscar {
+#btnConfirm {
   min-width: 12%;
   height: 48px;
-  background: #667EEA;
+  background: #8B4513;
   border-radius: 4px;  
   color: #fff;
   font-weight: bold;
   font-size: 20px;
   align-self: center;
+  border: none;
   margin: 20px 0px 0px 40px;     
 }
 
@@ -77,7 +78,7 @@ form {
 }
   
 .containerRadio input:checked ~ .checkmark {
-  background-color: #667EEA;
+  background-color: #A0522D;
 }
   
 .checkmark:after {
@@ -100,7 +101,7 @@ form {
 }
 
 .header {
-  background-color: #667EEA;
+  background-color: #8B4513;
   height: 12vh;
   width: 100%;
   margin: 0;
@@ -121,9 +122,15 @@ form {
   height: 70vh;
   margin: 2% 15%;
   top: 100px;
+  box-shadow: 20px 20px 20px #888888;
+  animation: fadein 2s; /* Padrão */
+  -webkit-animation: fadeIn 1.5s ease-in-out;
+  -moz-animation: fadeIn 1.5s ease-in-out;
+  -o-animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-.btn-final {
+.btn-loose, .btn-win {
   min-width: 25%;
   height: 48px;
   background: #fff;
@@ -135,20 +142,54 @@ form {
   margin-top: 50px;
 }
 
-.msg-loose {
+.btn-win {
+  background: #8B4513;
+  color: #fff;
+}
+
+.block-final {
   font-weight: bold;
   max-width: 72%;  
-  font-size: 60px;
-  color: #fff;
+  font-size: 60px;  
   align-self: center;     
   position: fixed;
-  border: none;  
   margin-top: 500px;
 }
 
-.game-over, .msg-loose {
+.msg-loose {
+  color: #fff;
+}
+
+.game-over, .block-final {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;  
 }
+
+.hide {
+  display: none;
+}
+
+#loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  60% { opacity: 0.6; } 
+  }
+  @-moz-keyframes fadeIn {
+  0% { opacity: 0;}
+  60% { opacity: 0.6; }
+  }
+  @-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  60% { opacity: 0.6; }
+  }
+  @keyframes fadeIn {
+  0% { opacity: 0; }
+  60% { opacity: 0.6; }
+  }
