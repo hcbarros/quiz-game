@@ -29,20 +29,11 @@ public class QuizGameService {
 		return repository.saveAll(listQuestions);
 	}
 	
-	
-	public List<Question> findQuestions() {
-		
+	public List<Question> findQuestions() {		
 		return repository.findAll();
 	}
 		
-	public Question findQuestionById(Long id) {
-		
-		return repository
-				.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException());
-	}		
-		
-	public void deleteAll() {
+	public void deleteAndSave() {
 		repository.deleteAll();
 		save();
 	}
