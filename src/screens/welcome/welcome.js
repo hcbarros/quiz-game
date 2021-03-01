@@ -12,7 +12,7 @@ class Welcome extends Component {
     async componentDidMount() {
 
         var xhttp = new XMLHttpRequest();
-        xhttp.open("DELETE", "http://localhost:8080/questions", true);
+        xhttp.open("DELETE", "https://api-quiz-game.herokuapp.com/questions", true);
         xhttp.send();                      
     }
 

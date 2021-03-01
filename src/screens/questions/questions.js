@@ -56,7 +56,7 @@ class Questions extends Component {
             }    
         }  
         xhttp.onreadystatechange = responses;            
-        xhttp.open("GET", "http://localhost:8080/questions", true);
+        xhttp.open("GET", "https://api-quiz-game.herokuapp.com/questions", true);
         xhttp.send();         
     }
 
