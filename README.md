@@ -9,17 +9,17 @@ O projeto da branch "react" pode ser acessado em http://localhost:3000
 
 A API possui os seguintes verbos:
 
-### GET/  DELETE/
+### GET/ ### DELETE/###
 
 O "delete" apos deletar também salva 05 questoes e respostas em ordem aleatória.
 
 Ambos os projeto também estão disponíveis nos seguintes endereços:
 
-### https://api-quiz-game.herokuapp.com/questions https://react-quiz-game.herokuapp.com/
+### https://api-quiz-game.herokuapp.com/questions ### https://react-quiz-game.herokuapp.com/
 
-\\\
-
-
+###
+###
+###
 
 1) Em javascript, qual a diferença entre Set e Map?
 2) O que é closure em javascript?
