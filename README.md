@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+## Projeto criado em 02 branchs, das quais a "main" se encontra o Spring Boot que cria a API utilizada na branch "react", que por sua vez cria a interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto da branch "main" pode ser facilmente executado utilizando a IDE Eclipse que se encontra no endereço https://spring.io/tools bastando clicar na opção "Maven Install" e em seguida "Spring Boot App", ou pela linha de comando utilizando "mvn clean install" em seguida, "mvn spring-boot:run".
 
-## Available Scripts
+O projeto da branch "react" pode ser executado digitando na linha de comando: npm install (para instalar as dependências) e em seguida "npm start".
 
-In the project directory, you can run:
+O projeto do Spring Boot pode ser acessado em http://localhost:8080/questions
+O projeto da branch "react" pode ser acessado em http://localhost:3000
 
-### `npm start`
+A API possui os seguintes verbos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### GET/
+### DELETE/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+O "delete" apos deletar também salva 05 questoes e respostas em ordem aleatória.
 
-### `npm test`
+Ambos os projeto também estão disponíveis nos seguintes endereços:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### https://api-quiz-game.herokuapp.com/questions
+### https://react-quiz-game.herokuapp.com/
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+1) Em javascript, qual a diferença entre Set e Map?
+2) O que é closure em javascript?
+3) No CSS, qual a diferença entre pseudo-classes e pseudo-elementos?
+4) Quais tags HTML são usadas para exibir os dados na forma tabular?
+5) Qual a principal diferença entre CSS Grid e Flexbox?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Desafio: Quiz Game
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Descrição:
+Uma vez respondido às questões acima, junte as perguntas e respostas e crie um quiz. O jogo
+deve começar com uma tela que contenha uma mensagem de boas vindas e um botão "Iniciar
+Jogo". Após o usuário clicar neste botão, a tela de boas vindas deve sumir e deve aparecer a
+primeira pergunta. Caso o usuário acerte, a próxima pergunta deve ser mostrada. Caso ele erre,
+um overlay preto (com a transparência a sua escolha) deve ser mostrado sobre a interface, com
+uma mensagem que ele perdeu o jogo e com um botão para que ele recomece o quiz. Caso ele
+acerte todas as perguntas, a interface deve mostrar uma mensagem parabenizando-o e um botão
+para que ele recomece o jogo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tecnologias:
+- Deve ser usado HTML, CSS e Javascript para desenvolver a interface web. Você poderá usar
+Typescript caso tenha familiaridade. Será permitido o uso de qualquer framework ou bibliotecas
+que facilitem a implementação do desafio.
+- Para desenvolver o web service, deve ser usada a linguagem Java. A interface de comunicação
+deve seguir a especificação REST para fornecer os dados necessários à interface. Assim como no
+desenvolvimento da interface, também poderá utilizar qualquer biblioteca ou framework que facilite
+a implementação desse desafio.
+- Os dados (perguntas e respostas), devem ser armazenados em um arquivo de texto ou em um
+banco de dados em memória (H2, Sqlite, etc). Caso opte pelo banco de dados, cuide para que
+este esteja sempre populado com os dados. O modelo de dados utilizado é de livre escolha.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Projeto:
+- Após o usuário clicar no botão iniciar jogo, o frontend deve fazer uma requisição AJAX para o
+backend com a finalidade de obter a lista de perguntas e respostas. A ordem da lista deve vir de
+forma aleatória do backend, dificultando a repetição da ordem das perguntas.
+- O frontend deve armazenar esse resultado e gerir quando cada pergunta e respostas devem ser
+mostrados. Quando o usuário recarregar a tela, o frontend deve fazer uma nova requisição para o
+backend após o usuário clicar em "Iniciar Jogo". Não é necessário fazer o uso de cache de dados
+do serviço.
+###Considerações:
+- O código deve estar todo em inglês (nome de variáveis, funções, classes, etc). Será permitido o
+uso de português apenas nos comentários.
+- É proibido o uso do alert() nesse desafio.
+- A corretude das respostas do quiz também serão avaliadas.
+- Preocupe-se em escrever um README explicando como rodar o seu projeto, tanto para frontend
+quanto para backend.
+- Uso de TDD é um diferencial.
+### Obs.:
+As respostas das perguntas de 1 a 5 não precisam ser enviadas separadamente, a avaliação
+destas será feita no código que corresponderá ao desafio.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
